@@ -153,34 +153,50 @@ export async function getAllTags(): Promise<string[]> {
 
 /**
  * Get featured blog posts (based on frontmatter featured flag)
+ * If no featured posts exist, returns the most recent posts
  */
-export async function getFeaturedPosts(limit?: number): Promise<BlogPost[]> {
+export async function getFeaturedPosts(limit: number = 3): Promise<BlogPost[]> {
   const slugs = getAllPostSlugs();
   
   const previews: BlogPost[] = [];
   
   for (const slug of slugs) {
-    const filePath = path.join(POSTS_DIRECTORY, `${slug}.md`);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    const parsed = await parseMarkdown(fileContent);
-    
-    if (parsed.frontmatter.published === false || !parsed.frontmatter.featured) {
-      continue;
-    }
+    try {
+      const filePath = path.join(POSTS_DIRECTORY, `${slug}.md`);
+      const fileContent = fs.readFileSync(filePath, 'utf-8');
+      const parsed = await parseMarkdown(fileContent);
+      
+      // Skip unpublished posts
+      if (parsed.frontmatter.published === false) {
+        continue;
+      }
 
-    previews.push({
-      slug,
-      title: parsed.frontmatter.title,
-      excerpt: parsed.frontmatter.excerpt,
-      content: parsed.content,
-      author: parsed.frontmatter.author,
-      publishedDate: parsed.frontmatter.date,
-      category: parsed.frontmatter.category,
-      tags: parsed.frontmatter.tags,
-      featured: true,
-      coverImage: parsed.frontmatter.image,
-      readingTime: parsed.readingTime,
-    });
+      // Only include featured posts
+      if (parsed.frontmatter.featured === true) {
+        previews.push({
+          slug,
+          title: parsed.frontmatter.title,
+          excerpt: parsed.frontmatter.excerpt,
+          content: parsed.content,
+          author: parsed.frontmatter.author,
+          publishedDate: parsed.frontmatter.date,
+          category: parsed.frontmatter.category,
+          tags: parsed.frontmatter.tags || [],
+          featured: true,
+          coverImage: parsed.frontmatter.image,
+          readingTime: parsed.readingTime,
+        });
+      }
+    } catch (error) {
+      console.error(`Error loading post ${slug}:`, error);
+    }
+  }
+
+  // If no featured posts, fall back to most recent posts
+  if (previews.length === 0) {
+    console.log('No featured posts found, using most recent posts');
+    const allPosts = await getAllPostPreviews();
+    return allPosts.slice(0, limit);
   }
 
   // Sort by date (newest first)
@@ -190,5 +206,5 @@ export async function getFeaturedPosts(limit?: number): Promise<BlogPost[]> {
     return dateB - dateA;
   });
 
-  return limit ? sorted.slice(0, limit) : sorted;
+  return sorted.slice(0, limit);
 }
