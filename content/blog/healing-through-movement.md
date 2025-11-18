@@ -5,7 +5,7 @@ date: 2024-02-10
 author: Elena Rodriguez
 category: Body-Based Healing
 tags: [somatic healing, movement, embodiment, trauma release]
-image: https://placehold.co/1200x630/6366f1/ffffff?text=Blog+Post
+image: /images/blog-5.svg
 published: true
 videoUrl: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 featured: true
