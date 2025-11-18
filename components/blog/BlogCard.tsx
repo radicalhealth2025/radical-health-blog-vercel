@@ -23,14 +23,11 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
         <Card hover padding="none" className="overflow-hidden h-full flex flex-col">
           {post.coverImage && (
             <div className="relative w-full h-48 bg-accent">
-              <OptimizedImage
+              <img
                 src={post.coverImage}
                 alt={post.title}
-                fill
-                className="object-cover"
+                className="w-full h-full object-cover"
                 loading="lazy"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                cloudinaryOptions={{ quality: 'auto', format: 'auto' }}
               />
             </div>
           )}
