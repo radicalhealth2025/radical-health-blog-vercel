@@ -5,7 +5,7 @@ date: 2024-02-17
 author: Dr. James Wilson
 category: Personal Growth
 tags: [self-compassion, inner critic, healing, mindfulness]
-image: /images/blog-4.svg
+image: /images/blog-4.jpg
 published: true
 featured: true
 ---

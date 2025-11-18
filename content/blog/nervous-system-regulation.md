@@ -5,7 +5,7 @@ date: 2024-02-24
 author: Dr. Sarah Chen
 category: Trauma Healing
 tags: [nervous system, polyvagal theory, regulation, somatic healing]
-image: /images/blog-3.svg
+image: /images/blog-3.jpg
 published: true
 featured: true
 ---

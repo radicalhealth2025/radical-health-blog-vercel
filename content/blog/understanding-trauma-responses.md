@@ -5,7 +5,7 @@ date: 2024-01-22
 author: Dr. Sarah Chen
 category: Trauma Healing
 tags: [trauma, nervous system, self-awareness, healing]
-image: /images/blog-6.svg
+image: /images/blog-6.jpg
 published: true
 videoUrl: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ---
