@@ -13,6 +13,13 @@ export interface BlogCardProps {
 
 export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   const formattedDate = formatDate(post.publishedDate);
+  
+  // Debug logging
+  console.log('BlogCard post:', { 
+    title: post.title, 
+    coverImage: post.coverImage,
+    hasCoverImage: !!post.coverImage 
+  });
 
   return (
     <Link href={`/blog/${post.slug}`} className="block h-full" aria-label={`Read article: ${post.title}`}>
@@ -21,16 +28,23 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
         className="h-full"
       >
         <Card hover padding="none" className="overflow-hidden h-full flex flex-col">
-          {post.coverImage && (
-            <div className="relative w-full h-48 bg-accent">
+          <div className="relative w-full h-48 bg-accent">
+            {post.coverImage ? (
               <img
                 src={post.coverImage}
                 alt={post.title}
                 className="w-full h-full object-cover"
                 loading="lazy"
+                onError={(e) => {
+                  console.error('Image failed to load:', post.coverImage);
+                  e.currentTarget.style.display = 'none';
+                }}
               />
-            </div>
-          )}
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-text-light">
+                No image
+              </div>
+            )}</div>
           
           <div className="p-6 flex flex-col flex-grow">
             <div className="flex items-center gap-3 mb-3">

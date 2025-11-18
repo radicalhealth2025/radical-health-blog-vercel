@@ -173,7 +173,7 @@ export async function getFeaturedPosts(limit: number = 3): Promise<BlogPost[]> {
 
       // Only include featured posts
       if (parsed.frontmatter.featured === true) {
-        previews.push({
+        const post = {
           slug,
           title: parsed.frontmatter.title,
           excerpt: parsed.frontmatter.excerpt,
@@ -185,7 +185,9 @@ export async function getFeaturedPosts(limit: number = 3): Promise<BlogPost[]> {
           featured: true,
           coverImage: parsed.frontmatter.image,
           readingTime: parsed.readingTime,
-        });
+        };
+        console.log('Featured post loaded:', { slug, coverImage: post.coverImage });
+        previews.push(post);
       }
     } catch (error) {
       console.error(`Error loading post ${slug}:`, error);
