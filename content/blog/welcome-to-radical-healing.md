@@ -7,6 +7,7 @@ category: Personal Growth
 tags: [healing, transformation, self-awareness]
 image: https://picsum.photos/seed/welcome-healing/1200/630
 published: true
+featured: true
 ---
 
 # Welcome to Radical Healing

@@ -7,6 +7,7 @@ category: Trauma Healing
 tags: [nervous system, polyvagal theory, regulation, somatic healing]
 image: https://picsum.photos/seed/nervous-system/1200/630
 published: true
+featured: true
 ---
 
 # Nervous System Regulation: Your Foundation for Healing

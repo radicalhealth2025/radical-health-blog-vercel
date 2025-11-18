@@ -7,6 +7,7 @@ category: Mindfulness
 tags: [mindfulness, meditation, beginners, daily practice]
 image: https://picsum.photos/seed/mindfulness/1200/630
 published: true
+featured: true
 ---
 
 # Mindfulness for Beginners: A Gentle Introduction
