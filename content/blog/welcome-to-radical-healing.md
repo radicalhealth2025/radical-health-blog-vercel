@@ -5,7 +5,7 @@ date: 2024-01-15
 author: Radical Healing Team
 category: Personal Growth
 tags: [healing, transformation, self-awareness]
-image: https://picsum.photos/seed/welcome-healing/1200/630
+image: https://placehold.co/1200x630/6366f1/ffffff?text=Blog+Post
 published: true
 featured: true
 ---

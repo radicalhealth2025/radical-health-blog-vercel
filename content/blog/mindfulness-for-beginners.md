@@ -5,7 +5,7 @@ date: 2024-02-03
 author: Michael Torres
 category: Mindfulness
 tags: [mindfulness, meditation, beginners, daily practice]
-image: https://picsum.photos/seed/mindfulness/1200/630
+image: https://placehold.co/1200x630/6366f1/ffffff?text=Blog+Post
 published: true
 featured: true
 ---
