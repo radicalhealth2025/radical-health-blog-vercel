@@ -61,14 +61,10 @@ export const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       {/* Cover Image */}
       {post.coverImage && (
         <div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden">
-          <OptimizedImage
+          <img
             src={post.coverImage}
             alt={post.title}
-            fill
-            className="object-cover"
-            priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-            cloudinaryOptions={{ quality: 'auto', format: 'auto' }}
+            className="w-full h-full object-cover"
           />
         </div>
       )}
